@@ -1,0 +1,41 @@
+19:38:15 **** Incremental Build of configuration Debug for project MPU_Try3 ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/mpu6050.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/mpu6050.d" -MT"Core/Src/mpu6050.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/mpu6050.o"
+../Core/Src/mpu6050.c: In function 'mpu6050_ReadAccel':
+../Core/Src/mpu6050.c:132:16: warning: unused variable 'AngleYaw' [-Wunused-variable]
+  132 |         double AngleYaw = atan(final_accel_Z/sqrt(final_accel_X*final_accel_X + final_accel_Y*final_accel_Y)* 1/(3.142/180)) + 1.569705f;
+      |                ^~~~~~~~
+../Core/Src/mpu6050.c:131:16: warning: unused variable 'AnglePitch' [-Wunused-variable]
+  131 |         double AnglePitch = -atan(final_accel_X/sqrt(final_accel_Y*final_accel_Y + final_accel_Z*final_accel_Z))*1/(3.142/180);
+      |                ^~~~~~~~~~
+../Core/Src/mpu6050.c:130:16: warning: unused variable 'AngleRoll' [-Wunused-variable]
+  130 |         double AngleRoll = atan(final_accel_Y/sqrt(final_accel_X * final_accel_X + final_accel_Z*final_accel_Z)) * 1/(3.142/180) + 3.578485f;
+      |                ^~~~~~~~~
+../Core/Src/mpu6050.c:115:27: warning: unused variable 'retZ' [-Wunused-variable]
+  115 |         HAL_StatusTypeDef retZ = HAL_I2C_Mem_Read (&hi2c1, MPU6050_ADDR, ACCEL_Z, 1, dataZ, 1, 100);
+      |                           ^~~~
+../Core/Src/mpu6050.c:99:27: warning: unused variable 'retY' [-Wunused-variable]
+   99 |         HAL_StatusTypeDef retY = HAL_I2C_Mem_Read (&hi2c1, MPU6050_ADDR, ACCEL_Y, 1, dataY, 1, 100);
+      |                           ^~~~
+../Core/Src/mpu6050.c:83:27: warning: unused variable 'retX' [-Wunused-variable]
+   83 |         HAL_StatusTypeDef retX = HAL_I2C_Mem_Read (&hi2c1, MPU6050_ADDR, ACCEL_X, 1, dataX, 1, 100);
+      |                           ^~~~
+../Core/Src/mpu6050.c: In function 'FinalAngle':
+../Core/Src/mpu6050.c:256:15: warning: unused variable 'angle_yaw' [-Wunused-variable]
+  256 |         float angle_yaw = 0.996f * angZ1 + 0.004f * AngleYaw;
+      |               ^~~~~~~~~
+arm-none-eabi-gcc -o "MPU_Try3.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\faraa\STM32CubeIDE\workspace_1.15.1\MPU_Try3\STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MPU_Try3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: MPU_Try3.elf
+ 
+arm-none-eabi-size  MPU_Try3.elf 
+arm-none-eabi-objdump -h -S MPU_Try3.elf  > "MPU_Try3.list"
+   text	   data	    bss	    dec	    hex	filename
+  44460	    488	   2216	  47164	   b83c	MPU_Try3.elf
+Finished building: default.size.stdout
+ 
+Finished building: MPU_Try3.list
+ 
+
+19:38:16 Build Finished. 0 errors, 7 warnings. (took 758ms)
+

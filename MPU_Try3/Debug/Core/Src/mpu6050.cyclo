@@ -1,0 +1,6 @@
+../Core/Src/mpu6050.c:30:6:mpu6050_Init	5
+../Core/Src/mpu6050.c:80:6:mpu6050_ReadAccel	1
+../Core/Src/mpu6050.c:141:6:mpu6050_ReadGyro	5
+../Core/Src/mpu6050.c:240:6:mpu6050GyroPrint	1
+../Core/Src/mpu6050.c:249:6:FinalAngle	1
+../Core/Src/mpu6050.c:265:6:TimerCheck	1
